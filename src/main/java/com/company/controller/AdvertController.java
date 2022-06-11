@@ -2,9 +2,12 @@ package com.company.controller;
 
 import com.company.dto.request.AdvertRequestDTO;
 import com.company.service.AdvertService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdvertController {
     private final AdvertService advertService;
 
+    @ApiOperation(value = "create", notes = "Method used for create advert",
+            authorizations = @Authorization(value = "JWT Token"))
+    @PreAuthorize("hasRole('USER')")
     @PostMapping("")
     public ResponseEntity<?> create(@RequestBody AdvertRequestDTO dto){
         log.info("Advert create: {}", dto);

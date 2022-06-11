@@ -94,9 +94,9 @@ public class CarTypeSerVice {
         CarTypeResponseDTO dto = new CarTypeResponseDTO();
 
         switch (appLanguage) {
-            case uz -> dto.setNameUz(entity.getNameUz());
-            case ru -> dto.setNameRu(entity.getNameRu());
-            case en -> dto.setNameEn(entity.getNameEn());
+            case uz -> dto.setName(entity.getNameUz());
+            case ru -> dto.setName(entity.getNameRu());
+            case en -> dto.setName(entity.getNameEn());
         }
 
         dto.setId(entity.getId());

@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-public class CategoryResponceDTO extends CategoryRequestDTO {
+public class CategoryResponceDTO {
     private Long id;
+    private String name;
     private LocalDateTime createdDate;
 }
