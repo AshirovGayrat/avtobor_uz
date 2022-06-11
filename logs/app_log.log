@@ -147,3 +147,52 @@ com.company.controller.ProfileController#updateStatus(Long, ProfileStatus) mappe
 11 Jun 2022 - 14:22:07.208 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
 11 Jun 2022 - 14:22:07.223 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown initiated...
 11 Jun 2022 - 14:22:07.229 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown completed.
+11 Jun 2022 - 14:53:44.025 - com.company.AvtoborUzApplication -  INFO  - Starting AvtoborUzApplication using Java 17.0.2 on ashirov with PID 5168 (C:\it\MyProjects\avtobor_uz\target\classes started by gayra in C:\it\MyProjects\avtobor_uz)
+11 Jun 2022 - 14:53:44.035 - com.company.AvtoborUzApplication -  DEBUG - Running with Spring Boot v2.7.0, Spring v5.3.20
+11 Jun 2022 - 14:53:44.035 - com.company.AvtoborUzApplication -  INFO  - The following 1 profile is active: "dev"
+11 Jun 2022 - 14:53:44.758 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11 Jun 2022 - 14:53:44.805 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Finished Spring Data repository scanning in 47 ms. Found 10 JPA repository interfaces.
+11 Jun 2022 - 14:53:45.195 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat initialized with port(s): 8080 (http)
+11 Jun 2022 - 14:53:45.195 - o.a.catalina.core.StandardService -  INFO  - Starting service [Tomcat]
+11 Jun 2022 - 14:53:45.195 - o.a.catalina.core.StandardEngine -  INFO  - Starting Servlet engine: [Apache Tomcat/9.0.63]
+11 Jun 2022 - 14:53:45.274 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring embedded WebApplicationContext
+11 Jun 2022 - 14:53:45.274 - o.s.b.w.s.c.ServletWebServerApplicationContext -  INFO  - Root WebApplicationContext: initialization completed in 1202 ms
+11 Jun 2022 - 14:53:45.383 - o.h.jpa.internal.util.LogHelper -  INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+11 Jun 2022 - 14:53:45.415 - org.hibernate.Version -  INFO  - HHH000412: Hibernate ORM core version 5.6.9.Final
+11 Jun 2022 - 14:53:45.493 - o.h.annotations.common.Version -  INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11 Jun 2022 - 14:53:45.540 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Starting...
+11 Jun 2022 - 14:53:45.649 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Start completed.
+11 Jun 2022 - 14:53:45.665 - org.hibernate.dialect.Dialect -  INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+11 Jun 2022 - 14:53:46.321 - o.h.e.t.j.p.i.JtaPlatformInitiator -  INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11 Jun 2022 - 14:53:46.321 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11 Jun 2022 - 14:53:46.618 - com.company.config.filter.JwtFilter -  DEBUG - Filter 'jwtFilter' configured for use
+11 Jun 2022 - 14:53:46.642 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -  WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11 Jun 2022 - 14:53:47.299 - o.s.s.web.DefaultSecurityFilterChain -  INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2e243122, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2a5c115b, org.springframework.security.web.context.SecurityContextPersistenceFilter@8bd9d08, org.springframework.security.web.header.HeaderWriterFilter@365a4b9b, org.springframework.web.filter.CorsFilter@49b6373f, org.springframework.security.web.authentication.logout.LogoutFilter@5625e7e1, com.company.config.filter.JwtFilter@4d6027be, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2eb0932c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e75bae7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20f3291d, org.springframework.security.web.session.SessionManagementFilter@34a482d0, org.springframework.security.web.access.ExceptionTranslationFilter@3c2e73ce, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@376bae20]
+11 Jun 2022 - 14:53:47.486 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat started on port(s): 8080 (http) with context path ''
+11 Jun 2022 - 14:53:47.768 - com.company.AvtoborUzApplication -  INFO  - Started AvtoborUzApplication in 4.006 seconds (JVM running for 4.534)
+11 Jun 2022 - 15:46:41.737 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Closing JPA EntityManagerFactory for persistence unit 'default'
+11 Jun 2022 - 15:46:41.737 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown initiated...
+11 Jun 2022 - 15:46:41.737 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Shutdown completed.
+11 Jun 2022 - 15:46:46.370 - com.company.AvtoborUzApplication -  INFO  - Starting AvtoborUzApplication using Java 17.0.2 on ashirov with PID 2500 (C:\it\MyProjects\avtobor_uz\target\classes started by gayra in C:\it\MyProjects\avtobor_uz)
+11 Jun 2022 - 15:46:46.375 - com.company.AvtoborUzApplication -  DEBUG - Running with Spring Boot v2.7.0, Spring v5.3.20
+11 Jun 2022 - 15:46:46.375 - com.company.AvtoborUzApplication -  INFO  - The following 1 profile is active: "dev"
+11 Jun 2022 - 15:46:47.102 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+11 Jun 2022 - 15:46:47.167 - o.s.d.r.c.RepositoryConfigurationDelegate -  INFO  - Finished Spring Data repository scanning in 47 ms. Found 10 JPA repository interfaces.
+11 Jun 2022 - 15:46:47.558 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat initialized with port(s): 8080 (http)
+11 Jun 2022 - 15:46:47.558 - o.a.catalina.core.StandardService -  INFO  - Starting service [Tomcat]
+11 Jun 2022 - 15:46:47.558 - o.a.catalina.core.StandardEngine -  INFO  - Starting Servlet engine: [Apache Tomcat/9.0.63]
+11 Jun 2022 - 15:46:47.636 - o.a.c.c.C.[Tomcat].[localhost].[/] -  INFO  - Initializing Spring embedded WebApplicationContext
+11 Jun 2022 - 15:46:47.636 - o.s.b.w.s.c.ServletWebServerApplicationContext -  INFO  - Root WebApplicationContext: initialization completed in 1225 ms
+11 Jun 2022 - 15:46:47.745 - o.h.jpa.internal.util.LogHelper -  INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+11 Jun 2022 - 15:46:47.777 - org.hibernate.Version -  INFO  - HHH000412: Hibernate ORM core version 5.6.9.Final
+11 Jun 2022 - 15:46:47.855 - o.h.annotations.common.Version -  INFO  - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+11 Jun 2022 - 15:46:47.902 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Starting...
+11 Jun 2022 - 15:46:48.011 - com.zaxxer.hikari.HikariDataSource -  INFO  - HikariPool-1 - Start completed.
+11 Jun 2022 - 15:46:48.027 - org.hibernate.dialect.Dialect -  INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+11 Jun 2022 - 15:46:48.651 - o.h.e.t.j.p.i.JtaPlatformInitiator -  INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+11 Jun 2022 - 15:46:48.651 - o.s.o.j.LocalContainerEntityManagerFactoryBean -  INFO  - Initialized JPA EntityManagerFactory for persistence unit 'default'
+11 Jun 2022 - 15:46:48.933 - com.company.config.filter.JwtFilter -  DEBUG - Filter 'jwtFilter' configured for use
+11 Jun 2022 - 15:46:48.964 - o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration -  WARN  - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+11 Jun 2022 - 15:46:49.589 - o.s.s.web.DefaultSecurityFilterChain -  INFO  - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@654dbb78, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1dba7721, org.springframework.security.web.context.SecurityContextPersistenceFilter@3328db4f, org.springframework.security.web.header.HeaderWriterFilter@7151dd9d, org.springframework.web.filter.CorsFilter@24381e4a, org.springframework.security.web.authentication.logout.LogoutFilter@23307c6c, com.company.config.filter.JwtFilter@7022fb5c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1390a43a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53202b06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6c3627c, org.springframework.security.web.session.SessionManagementFilter@6c120b00, org.springframework.security.web.access.ExceptionTranslationFilter@2027d56f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1067bc4c]
+11 Jun 2022 - 15:46:49.792 - o.s.b.w.e.tomcat.TomcatWebServer -  INFO  - Tomcat started on port(s): 8080 (http) with context path ''
+11 Jun 2022 - 15:46:50.074 - com.company.AvtoborUzApplication -  INFO  - Started AvtoborUzApplication in 3.976 seconds (JVM running for 4.596)

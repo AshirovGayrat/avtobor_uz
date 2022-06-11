@@ -22,7 +22,8 @@ public class MakeService {
 
     public MakeResponseDTO create(MakeRequestDTO dto) {
         if (getByName(dto.getName()).isPresent()) {
-            throw new CategoryAlreadyExistsException("Category already exists");
+            log.warn("Make already exists: {}", dto);
+            throw new CategoryAlreadyExistsException("Make already exists");
         }
 
         MakeEntity entity = new MakeEntity();
@@ -45,8 +46,10 @@ public class MakeService {
         MakeEntity entity = getById(id);
 
         if (getByName(dto.getName()).isPresent()) {
-            throw new CategoryAlreadyExistsException("Category alredy exists");
+            log.warn("Make already exists: {}", dto);
+            throw new CategoryAlreadyExistsException("Make alredy exists");
         }
+
         entity.setName(dto.getName());
         makeRepository.save(entity);
         return true;
@@ -54,28 +57,28 @@ public class MakeService {
 
     public Boolean delete(Long id) {
         MakeEntity entity = getById(id);
-        if (!entity.getVisible()){
+        if (!entity.getVisible()) {
             return true;
         }
 
-        makeRepository.updateVisible(id);
-        return true;
+        int n = makeRepository.updateVisible(id);
+        return n > 0;
     }
 
-    public Optional<MakeEntity> getOptionalById(Long id){
-        return makeRepository.findById(id);
-    }
+    public Optional<MakeEntity> getOptionalById(Long id) {return makeRepository.findById(id);}
 
-    public MakeEntity getById(Long id){
-        return makeRepository.findById(id).orElseThrow(()-> {
-            log.info("Make not found: {}", id);
+    public MakeEntity getById(Long id) {
+        return makeRepository.findById(id).orElseThrow(() -> {
+            log.warn("Make not found: {}", id);
             throw new ItemNotFoundException("Make not found");
         });
     }
 
-    public Optional<MakeEntity> getByName(String name){
-        return makeRepository.findByName(name);
+    public MakeResponseDTO getMakeById(Long id) {
+        return toDto(getById(id));
     }
+
+    public Optional<MakeEntity> getByName(String name) {return makeRepository.findByName(name);}
 
     public MakeResponseDTO toDto(MakeEntity entity) {
         MakeResponseDTO dto = new MakeResponseDTO();
