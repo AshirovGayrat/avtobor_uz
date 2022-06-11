@@ -72,7 +72,7 @@ public class AttachService {
                         .body(resource);
 
             } else {
-                log.warn("cloud not read the file : {}", key );
+                log.warn("cloud not read the file : {}", key);
                 throw new RuntimeException("Could not read the file!");
             }
         } catch (MalformedURLException e) {
@@ -81,7 +81,7 @@ public class AttachService {
     }
 
     public AttachEntity get(String id) {
-        return attachRepository.findById(id).orElseThrow(() -> {
+        return attachRepository.findByIdAndVisibleTrue(id).orElseThrow(() -> {
             log.warn("Attach not found!{}", AttachService.class);
             throw new ItemNotFoundException("Attach Not Found");
         });
@@ -108,8 +108,8 @@ public class AttachService {
                 "/" + entity.getId() + "." + entity.getExtension());
 
         if (file.delete()) {
-            attachRepository.deleteById(key);
-            return true;
+            int n = attachRepository.updateVisible(false, key);
+            return n > 0;
         }
         log.warn("Could not read the file!{}", AttachService.class);
         throw new AppBadRequestException("Could not read the file!");

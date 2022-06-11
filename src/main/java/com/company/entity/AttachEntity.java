@@ -34,4 +34,5 @@ public class AttachEntity {
     @Column(name = "create_date")
     private LocalDateTime createdDate = LocalDateTime.now();
 
+    private Boolean visible=true;
 }
