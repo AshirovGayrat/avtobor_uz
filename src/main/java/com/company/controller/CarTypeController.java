@@ -3,17 +3,13 @@ package com.company.controller;
 import com.company.dto.request.CarTypeRequestDTO;
 import com.company.dto.response.CarTypeResponseDTO;
 import com.company.enums.AppLang;
-import com.company.enums.ProfileRole;
 import com.company.service.CarTypeSerVice;
-import com.company.util.JwtUtil;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @RestController
@@ -32,10 +28,8 @@ public class CarTypeController {
     @ApiOperation(value = "getAll", notes = "Method used for get all Car types")
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("/pagination/{lang}")
-    public ResponseEntity<?> getAll(@PathVariable("lang") AppLang lang,
-                                    @RequestParam(value = "page", defaultValue = "0") int page,
-                                    @RequestParam(value = "size", defaultValue = "10") int size) {
-        return ResponseEntity.ok(carTypeService.getAllWithPagination(page, size, lang));
+    public ResponseEntity<?> getAll(@PathVariable("lang") AppLang lang) {
+        return ResponseEntity.ok(carTypeService.getAllCarTypeList(lang));
     }
 
     @ApiOperation(value = "get", notes = "Method used for get Car type by id")

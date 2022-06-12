@@ -1,11 +1,16 @@
 package com.company.dto.request;
 
 import com.company.enums.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 public class AdvertRequestDTO {
     private List<String> attachIdList;
 
@@ -17,11 +22,13 @@ public class AdvertRequestDTO {
     private Integer tireSize;
     private Double mileage;
     private Integer horsePower;
+    private LocalDate carYear;
 
     //
     private Long makeId;
     private Long categoryId;
     private Long carTypeId;
+    private Long conditionsId;
 
     //ENUMS
     private ValyutaType valyutaType;

@@ -10,8 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-
 @RestController
 @RequestMapping("/api/v1/category")
 @Slf4j
@@ -28,10 +26,8 @@ public class CategoryController {
 
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
     @GetMapping("/pagination/{lang}")
-    public ResponseEntity<?> getAll(@PathVariable("lang") AppLang lang,
-                                    @RequestParam(value = "page", defaultValue = "0") int page,
-                                    @RequestParam(value = "size", defaultValue = "10") int size) {
-        return ResponseEntity.ok(categoryService.getAllWithPagination(lang, page, size));
+    public ResponseEntity<?> getAll(@PathVariable("lang") AppLang lang) {
+        return ResponseEntity.ok(categoryService.getCategoryList(lang));
     }
 
     @PreAuthorize("hasAnyRole('ADMIN','USER')")

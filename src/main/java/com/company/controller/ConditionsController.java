@@ -26,7 +26,7 @@ public class ConditionsController {
 
     @ApiOperation(value = "get all", notes = "Method used for get all conditions paginayion")
     @PreAuthorize("hasAnyRole('ADMIN','USER')")
-    @GetMapping("/pagination/{lang}")
+    @GetMapping("/{lang}")
     public ResponseEntity<?> getAll(@PathVariable("lang") AppLang lang) {
         return ResponseEntity.ok(conditionsService.getConditionsList(lang));
     }

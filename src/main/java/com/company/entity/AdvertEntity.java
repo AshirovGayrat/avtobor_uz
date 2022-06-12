@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -24,6 +25,8 @@ public class AdvertEntity extends BaseEntity {
     private Double mileage;
     @Column(name = "horse_power")
     private Integer horsePower;
+    @Column(name = "car_year")
+    private LocalDate carYear;
 
     //ENUMS
     @Enumerated(EnumType.STRING)

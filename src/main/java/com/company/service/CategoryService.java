@@ -36,17 +36,14 @@ public class CategoryService {
         return toDto(entity, AppLang.uz);
     }
 
-    public PageImpl<CategoryResponceDTO> getAllWithPagination(AppLang appLanguage, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
-        Page<CategoryEntity> categoryEntityPage = categoryRepository.findAllByVisibleTrue(pageable);
+    public List<CategoryResponceDTO> getCategoryList(AppLang appLanguage) {
+        List<CategoryEntity> categoryList = categoryRepository.findAllByVisibleTrue();
 
-        List<CategoryEntity> categoryEntityList = categoryEntityPage.getContent();
-        long totalContent = categoryEntityPage.getTotalElements();
         List<CategoryResponceDTO> dtoList = new ArrayList<>();
 
-        categoryEntityList.forEach(entity -> dtoList.add(toDto(entity, appLanguage)));
+        categoryList.forEach(entity -> dtoList.add(toDto(entity, appLanguage)));
 
-        return new PageImpl<CategoryResponceDTO>(dtoList, pageable, totalContent);
+        return dtoList;
     }
 
 

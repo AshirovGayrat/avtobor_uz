@@ -36,17 +36,14 @@ public class CarTypeSerVice {
         return toDto(entity, AppLang.uz);
     }
 
-    public PageImpl<CarTypeResponseDTO> getAllWithPagination(int page, int size, AppLang lang) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdDate"));
-        Page<CarTypeEntity> categoryEntityPage = carTypeRepository.findAllByVisibleTrue(pageable);
+    public List<CarTypeResponseDTO> getAllCarTypeList(AppLang lang) {
+        List<CarTypeEntity> carTypeList = carTypeRepository.findAllByVisibleTrue();
 
-        List<CarTypeEntity> categoryEntityList = categoryEntityPage.getContent();
-        long totalContent = categoryEntityPage.getTotalElements();
         List<CarTypeResponseDTO> dtoList = new ArrayList<>();
 
-        categoryEntityList.forEach(entity -> dtoList.add(toDto(entity, lang)));
+        carTypeList.forEach(entity -> dtoList.add(toDto(entity, lang)));
 
-        return new PageImpl<CarTypeResponseDTO>(dtoList, pageable, totalContent);
+        return dtoList;
     }
 
     public Boolean update(Long id, CarTypeRequestDTO dto) {

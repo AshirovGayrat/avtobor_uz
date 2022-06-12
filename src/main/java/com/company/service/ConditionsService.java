@@ -24,8 +24,8 @@ public class ConditionsService {
     public ConditionsResponseDTO create(ConditionsRequestDTO dto) {
         Optional<ConditionsEntity> optional = getByName(dto.getNameEn(), dto.getNameUz(), dto.getNameRu());
         if (optional.isPresent()) {
-            log.warn("Category already exists: {}", dto);
-            throw new CategoryAlreadyExistsException("Category already exists");
+            log.warn("Conditions already exists: {}", dto);
+            throw new CategoryAlreadyExistsException("Conditions already exists");
         }
 
         ConditionsEntity entity = new ConditionsEntity();
@@ -50,7 +50,7 @@ public class ConditionsService {
     public Boolean update(Long id, ConditionsRequestDTO dto) {
         Optional<ConditionsEntity> optional = getByName(dto.getNameEn(), dto.getNameUz(), dto.getNameRu());
         if (optional.isPresent()) {
-            throw new CategoryAlreadyExistsException("Category already exists");
+            throw new CategoryAlreadyExistsException("Conditions already exists");
         }
 
         ConditionsEntity category = getEntityById(id);
@@ -72,8 +72,8 @@ public class ConditionsService {
 
     public ConditionsEntity getEntityById(Long id) {
         return conditionsRepository.findById(id).orElseThrow(() -> {
-            log.warn("Category not found: {}", id);
-            throw new ItemNotFoundException("Category not found");
+            log.warn("Conditions not found: {}", id);
+            throw new ItemNotFoundException("Conditions not found");
         });
     }
 

@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> {
@@ -17,7 +18,7 @@ public interface CategoryRepository extends JpaRepository<CategoryEntity, Long> 
     @Query("update CategoryEntity set visible =false where id = :id")
     int updateVisible(@Param("id") Long id);
 
-    Page<CategoryEntity> findAllByVisibleTrue(Pageable pageable);
+    List<CategoryEntity> findAllByVisibleTrue();
 
     Optional<CategoryEntity> findByNameEnAndNameUzAndNameRuAndVisibleTrue(String en, String uz, String ru);
 
