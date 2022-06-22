@@ -22,7 +22,7 @@ public class ProfileRequestDTO {
     @Size(min = 4)
     private String password;
 
-    @NotNull
     private String about;
+
     private ProfileType profileType;
 }

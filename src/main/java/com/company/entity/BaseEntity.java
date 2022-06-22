@@ -17,7 +17,7 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime createdDate;
+    private LocalDateTime createdDate=LocalDateTime.now();
     private LocalDateTime updatedDate;
-    private Boolean visible;
+    private Boolean visible=true;
 }

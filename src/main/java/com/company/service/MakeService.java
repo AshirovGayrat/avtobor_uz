@@ -39,7 +39,7 @@ public class MakeService {
         List<MakeEntity> categoryEntityList = categoryEntityPage.getContent();
         long totalContent = categoryEntityPage.getTotalElements();
         List<MakeResponseDTO> dtoList = categoryEntityList.stream().map(this::toDto).toList();
-        return new PageImpl<MakeResponseDTO>(dtoList, pageable, totalContent);
+        return new PageImpl<>(dtoList, pageable, totalContent);
     }
 
     public Boolean update(Long id, MakeRequestDTO dto) {
@@ -64,8 +64,6 @@ public class MakeService {
         int n = makeRepository.updateVisible(id);
         return n > 0;
     }
-
-    public Optional<MakeEntity> getOptionalById(Long id) {return makeRepository.findById(id);}
 
     public MakeEntity getById(Long id) {
         return makeRepository.findById(id).orElseThrow(() -> {

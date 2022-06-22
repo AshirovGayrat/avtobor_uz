@@ -1,18 +1,20 @@
+--Entities--
 1.profile - name,surname,email,phone,website,facebook,about(ProfileType-privatePerson,company,autodealer,showroom)
 2.phoneInfo - profileId,phone,nomi,(boolean-asosiy,telegram,whatsapp,viber,imo)
 3.ProfileBalance - profileId,currentBalance,availableBalance,reservedAmount
 
 {ADVERT
-3.AdvertEntity - categoryId,carType,make,description,contactNumber,region,price,valyutaType,attachId,
+4.AdvertEntity - categoryId,carType,make,description,contactNumber,region,price,valyutaType,attachId,
 (PaymentType-payment,lease),(advertType-sell,rent),(Transmission-automatic,manual,robot,semiautomatic,variator),
 (Condition-aftercrash,doesnotrequirerepair,good,great,new),(WheelDrive-front,full,rear),(BodyColor-...),
 engineSize,tireSize,mileage,horsePower,(FuelType-diesel,electro,petrol),(Conditions-ABS,Airbag...)
 
-4.carCategory - nameUz,nameRu,nameEn
-5.CarType - categoryId,nameUz,nameRu,nameEn
-6.Make - categoryId,name
+5.carCategory - nameUz,nameRu,nameEn
+6.CarType - categoryId,nameUz,nameRu,nameEn
+7.Make - categoryId,name
 }
 
+--TZ--
 profile{
 create(adm)
 update(public)

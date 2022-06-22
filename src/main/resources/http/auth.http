@@ -1,0 +1,26 @@
+
+
+### register
+### eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIrOTk4OTM0NDQ1NTY2IiwiaWF0IjoxNjU1OTI1ODE3LCJpc3MiOiJtYXpnaSBwcm9kdWN0aW9uIn0.zTUxXeZ9Wf_71KY4VVlsJQpy2JS93NeF2GJLk1wAkF4
+POST http://localhost:8080/api/v1/auth/registration
+Content-Type: application/json
+
+{
+  "name": "Asal",
+  "surname": "Asadova",
+  "email": "asal@gmail.com",
+  "phone": "+998934445566",
+  "password": "simba",
+  "about": "kuzatuvchi",
+  "profileType": "private_person"
+}
+
+### login
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "emailOrPhone": "+998911111111",
+  "password": "simba",
+  "appLang": "uz"
+}

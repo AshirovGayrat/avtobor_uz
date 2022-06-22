@@ -199,9 +199,7 @@ public class AdvertService {
     public List<AdvertResponseDTO> filter(FilterDTO dto, AppLang appLanguage) {
         List<AdvertResponseDTO> dtoList = new LinkedList<>();
         advertCustomRepository.filter(dto).
-                forEach(advert -> {
-                    dtoList.add(toDtoFromMapper((AdvertMapper) advert, appLanguage));
-                });
+                forEach(advert -> dtoList.add(toDtoFromMapper((AdvertMapper) advert, appLanguage)));
         return dtoList;
     }
 

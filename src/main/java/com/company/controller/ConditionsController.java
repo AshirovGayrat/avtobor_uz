@@ -3,6 +3,7 @@ package com.company.controller;
 import com.company.dto.request.ConditionsRequestDTO;
 import com.company.enums.AppLang;
 import com.company.service.ConditionsService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@Api(tags = "Conditions")
 public class ConditionsController {
     private final ConditionsService conditionsService;
 

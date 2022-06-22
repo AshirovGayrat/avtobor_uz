@@ -2,6 +2,7 @@ package com.company.controller;
 
 import com.company.dto.request.MakeRequestDTO;
 import com.company.service.MakeService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 @RequestMapping("/api/v1/make")
 @RequiredArgsConstructor
+@Api(tags = "Make")
 public class MakeController {
 private final MakeService makeService;
 

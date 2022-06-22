@@ -2,11 +2,9 @@ package com.company.repository.custom;
 
 import com.company.dto.FilterDTO;
 import com.company.dto.response.AdvertResponseDTO;
-import com.company.entity.AdvertEntity;
-import com.company.mapper.AdvertMapper;
+import com.company.mapper.AdvertFilterMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
@@ -18,16 +16,16 @@ public class AdvertCustomRepository {
     private final EntityManager entityManager;
 
     public List<AdvertResponseDTO> filter(FilterDTO dto) {
-        StringBuilder sql = new StringBuilder();
-        sql.append(
-                " select a.id as id, a.description as descrip, a.price as price, a.createdDate as date," +
-                        " a.advertType as advertType, a.bodyColor as color, a.conditionType as conditionType," +
-                        " a.contactNumber as contactNumber, a.engineSize as engineSize, a.fuelType as fuelType," +
-                        " a.horsePower as horsePower, a.mileage as mileage, a.paymentType, a.region, a.tireSize," +
-                        " a.transmissionType, a.valyutaType, a.wheelDriveType,m.id as m_id, m.name as make," +
-                        " ct.id as ct_id, ct.nameUz as ct_uz," +
-                        " ct.nameRu as ct_ru, ct.nameEn as ct_en, c.id as c_id, aj.id as joinID," +
-                        " c.nameUz as c_uz, c.nameRu as c_ru, c.nameEn as c_en, p.id as profileId " +
+//        String test=
+        StringBuilder sql = new StringBuilder(
+                " select new com.company.mapper.AdvertFilterMapper( a.id as advertId, a.description, a.price, a.createdDate," +
+                        " a.advertType, a.bodyColor, a.conditionType," +
+                        " a.contactNumber, a.engineSize, a.fuelType," +
+                        " a.horsePower, a.mileage, a.paymentType, a.region, a.tireSize," +
+                        " a.transmissionType, a.valyutaType, a.wheelDriveType,m.id as makeId, m.name as make," +
+                        " ct.id as ctId, ct.nameUz as ctUz," +
+                        " ct.nameRu as ctRu, ct.nameEn as ctEn, c.id as categoryId, aj.id as joinID," +
+                        " c.nameUz as cUz, c.nameRu as cRu, c.nameEn as cEn, p.id as profileId ) " +
                         " from AdvertEntity as a inner join " +
                         " AdvertJoinsEntity as aj inner join " +
                         " MakeEntity as m on aj.makeId=m.id inner join " +
@@ -35,46 +33,48 @@ public class AdvertCustomRepository {
                         " CategoryEntity as c on aj.categoryId=c.id inner join " +
                         " ProfileEntity as p on aj.profileId=p.id ");
 
+//        Query query=entityManager.createQuery(test, AdvertFilterMapper.class);
+
 
         if (Optional.ofNullable(dto.getCategoryId()).isPresent()) {
-            sql.append(" where c.id=" + dto.getCategoryId());
+            sql.append(" where c.id=").append(dto.getCategoryId());
         } else sql.append(" where a.price>1 ");
 
         if (Optional.ofNullable(dto.getMakeId()).isPresent())
-            sql.append(" and m.id=" + dto.getMakeId());
+            sql.append(" and m.id=").append(dto.getMakeId());
 
         if (Optional.ofNullable(dto.getToPrice()).isPresent() && Optional.ofNullable(dto.getFromPrice()).isPresent())
-            sql.append(" and a.price between " + dto.getFromPrice() + " and " + dto.getToPrice());
+            sql.append(" and a.price between ").append(dto.getFromPrice()).append(" and ").append(dto.getToPrice());
 
         if (Optional.ofNullable(dto.getFromPrice()).isPresent())
-            sql.append(" and a.price > " + dto.getFromPrice());
+            sql.append(" and a.price > ").append(dto.getFromPrice());
 
         if (Optional.ofNullable(dto.getToPrice()).isPresent())
-            sql.append(" and a.price < " + dto.getToPrice());
+            sql.append(" and a.price < ").append(dto.getToPrice());
 
         if (Optional.ofNullable(dto.getToMileage()).isPresent() && Optional.ofNullable(dto.getFromMileage()).isPresent())
-            sql.append(" and a.mileage between " + dto.getFromMileage() + " and " + dto.getToMileage());
+            sql.append(" and a.mileage between ").append(dto.getFromMileage()).append(" and ").append(dto.getToMileage());
 
-        if (Optional.ofNullable(dto.getFromPrice()).isPresent())
-            sql.append(" and a.mileage > " + dto.getFromPrice());
+        if (Optional.ofNullable(dto.getFromMileage()).isPresent())
+            sql.append(" and a.mileage > ").append(dto.getFromMileage());
 
-        if (Optional.ofNullable(dto.getToPrice()).isPresent())
-            sql.append(" and a.mileage < " + dto.getToPrice());
+        if (Optional.ofNullable(dto.getToMileage()).isPresent())
+            sql.append(" and a.mileage < ").append(dto.getToMileage());
 
         // Car Year
         if (Optional.ofNullable(dto.getFromYear()).isPresent() && Optional.ofNullable(dto.getToYear()).isPresent())
-            sql.append(" and a.carYear between " + dto.getFromMileage() + " and " + dto.getToMileage());
+            sql.append(" and a.carYear between ").append(dto.getFromMileage()).append(" and ").append(dto.getToMileage());
 
         if (Optional.ofNullable(dto.getFromYear()).isPresent())
-            sql.append(" and a.carYear > " + dto.getFromPrice());
+            sql.append(" and a.carYear > ").append(dto.getFromPrice());
 
         if (Optional.ofNullable(dto.getToYear()).isPresent())
-            sql.append(" and a.carYear < " + dto.getToPrice());
+            sql.append(" and a.carYear < ").append(dto.getToPrice());
 
         if (Optional.ofNullable(dto.getTransmission()).isPresent())
-            sql.append("and a.transmissionType='"+dto.getTransmission()+"'");
+            sql.append("and a.transmissionType='").append(dto.getTransmission()).append("'");
 
-        Query query = entityManager.createQuery(sql.toString(), AdvertMapper.class);
+        Query query = entityManager.createQuery(sql.toString(), AdvertFilterMapper.class);
 
         return query.getResultList();
     }

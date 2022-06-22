@@ -37,7 +37,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiDetails() {
         return new ApiInfo("Avtobor_uz",
-                "Api documentation for Caravan Project",
+                "Api documentation for Avtobor.uz Project",
                 "1.0",
                 "t.me/ashirov_04",
                 new springfox.documentation.service.Contact("", "", ""),

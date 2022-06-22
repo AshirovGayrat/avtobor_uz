@@ -3,6 +3,7 @@ package com.company.controller;
 import com.company.dto.ProfileDetailDTO;
 import com.company.dto.response.LoginResponse;
 import com.company.service.SmsService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("api/v1/sms")
 @RequiredArgsConstructor
+@Api(tags = "Sms")
 public class SmsController {
     private final SmsService smsService;
 

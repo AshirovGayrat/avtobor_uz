@@ -4,6 +4,7 @@ import com.company.dto.request.CarTypeRequestDTO;
 import com.company.dto.response.CarTypeResponseDTO;
 import com.company.enums.AppLang;
 import com.company.service.CarTypeSerVice;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/car-type")
 @RequiredArgsConstructor
+@Api(tags = "CarType")
 public class CarTypeController {
     private final CarTypeSerVice carTypeService;
 

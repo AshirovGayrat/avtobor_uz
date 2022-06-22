@@ -3,6 +3,7 @@ package com.company.controller;
 import com.company.dto.request.CategoryRequestDTO;
 import com.company.enums.AppLang;
 import com.company.service.CategoryService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/category")
 @Slf4j
+@Api(tags = "Category")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;

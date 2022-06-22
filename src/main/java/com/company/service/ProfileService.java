@@ -22,6 +22,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.NonUniqueResultException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -53,11 +54,17 @@ public class ProfileService {
             return new ResponseMessageDTO("Email Already Exits", false);
 //            throw new EmailAlreadyExistsException("Email Already Exits");
         }
+        Optional<ProfileEntity> optional2 = profileRepository.findByPhoneAndVisibleTrue(dto.getPhone());
+        if (optional2.isPresent()) {
+            log.warn("phone alredy exists : {}", dto);
+            return new ResponseMessageDTO("Phone Already Exits", false);
+        }
 
         ProfileEntity entity = toEntity(dto);
         try {
             profileRepository.save(entity);
-        } catch (DataIntegrityViolationException e) {
+//        } catch (DataIntegrityViolationException e) {
+        } catch (NonUniqueResultException e) {
             log.warn("Unique Email {}", dto.getEmail());
             throw new AppBadRequestException("Unique Email!");
         }
@@ -88,7 +95,7 @@ public class ProfileService {
 
     // Update profile
     public ProfileUpdateDto updateProfile(ProfileUpdateDto dto) {
-        var entity=EntityDetails.getProfile();
+        var entity = EntityDetails.getProfile();
 
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
@@ -155,9 +162,7 @@ public class ProfileService {
         if (Optional.ofNullable(dto.getEmail()).isPresent()) {
             entity.setEmail(dto.getEmail());
         }
-        if (Optional.ofNullable(dto.getPhone()).isPresent()) {
-            entity.setPhone(dto.getPhone());
-        }
+        entity.setPhone(dto.getPhone());
         BCryptPasswordEncoder pswdEncode = new BCryptPasswordEncoder();
         String encodedPswd = pswdEncode.encode(dto.getPassword());
         entity.setPassword(encodedPswd);

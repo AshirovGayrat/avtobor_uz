@@ -17,6 +17,7 @@ public class ProfileEntity extends BaseEntity{
     private String surname;
     @Column(unique = true)
     private String email;
+    @Column(unique = true)
     private String phone;
     private String password;
     @Column(name = "web_site")

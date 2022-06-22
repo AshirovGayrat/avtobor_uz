@@ -67,6 +67,7 @@ public class AuthService {
         }
 
         ProfileResponseDTO responseDTO = profileService.toDTO(entity);
+        responseDTO.setToken(JwtUtil.encode(responseDTO.getPhone()));
 
         return ResponseEntity.ok(new LoginResponse(true, responseDTO));
     }

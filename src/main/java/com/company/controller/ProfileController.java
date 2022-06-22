@@ -5,6 +5,7 @@ import com.company.dto.request.ProfileRequestDTO;
 import com.company.dto.request.ProfileUpdateDto;
 import com.company.enums.ProfileStatus;
 import com.company.service.ProfileService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.Authorization;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
 @Slf4j
 @RestController
 @RequestMapping("/profile")
+@Api(tags = "Profile")
 public class ProfileController {
     @Autowired
     private ProfileService profileService;

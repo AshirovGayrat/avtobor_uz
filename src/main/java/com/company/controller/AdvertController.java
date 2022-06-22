@@ -4,6 +4,7 @@ import com.company.dto.FilterDTO;
 import com.company.dto.request.AdvertRequestDTO;
 import com.company.enums.AppLang;
 import com.company.service.AdvertService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.Authorization;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/advert")
 @RequiredArgsConstructor
+@Api(tags = "Advert")
 public class AdvertController {
     private final AdvertService advertService;
 
